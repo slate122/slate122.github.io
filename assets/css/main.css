@@ -4160,19 +4160,10 @@ input, select, textarea {
   width: 120px;
   height: 120px;
   object-fit: cover;
-  object-position: 48% 42%; /* Adjusts position inside the crop */
-  /*border-radius: 50%;
-  border: 3px solid white;*/
+  object-position: 48% 30%; /* 50% is centered horizontally, 30% moves it up */
+  border-radius: 50%;
+  border: 3px solid white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 
-/* Force PostgreSQL image into a perfect circle */
-.image.circle-image img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-  border: 2px solid #ccc;
-}
