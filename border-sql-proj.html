@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Border Entry Data Analysis Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #1a1a1a;
+    }
+
+    h1 {
+      font-size: 2em;
+      border-bottom: 2px solid #444;
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.4em;
+      margin-top: 2em;
+      border-bottom: 1px solid #ccc;
+    }
+
+    h3 {
+      margin-top: 1.2em;
+      font-size: 1.2em;
+    }
+
+    .meta {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+
+    table, th, td {
+      border: 1px solid #999;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    .embed {
+      margin: 1em 0;
+      background: #e9ecef;
+      border: 1px dashed #aaa;
+      padding: 1em;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .footer {
+      margin-top: 3em;
+      border-top: 1px solid #ccc;
+      padding-top: 1em;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Border Entry Data Analysis Report</h1>
+
+  <div class="meta">
+    Data Landing Page: <a href="https://www.bts.gov/explore-topics-and-geography/geography/border-crossingentry-data" target="_blank"> Bureau of Transportation Statistics</a><br>
+    Data Source: <a href="https://catalog.data.gov/dataset/border-crossing-entry-data-683ae" target="_blank">DATA.GOV</a><br>
+    PostgreSQL Queries: <a href="https://github.com/slate122/Portfolio_Projects/blob/main/BorderEntryProj.SQL" target="_blank">GitHub Repository</a><br>
+    Date: 5/27/25
+  </div>
+
+  <h2>PART I – UNDERSTANDING DATA</h2>
+
+  <h3>1. Data Time Frame</h3>
+  <p>The data represented in this report includes all legal entry methods of ground transportation from <b>1/1/1996</b> up until as recent as <b>3/1/2025</b> and is updated monthly by port.</p>
+
+  <h3>2. Total Number of Border Entries (All Time)</h3>
+  <p>During the near 30 years of data collection, a total of <b>11,589,879,797</b> ground transportations have entered the northern or southern border of the United States. This number includes passengers within vehicles and is the total count of all entrants, therefore commuters for example will likely be counted multiple times within the same month.</p>
+
+  <h3>3. Geographic Coverage</h3>
+  <p>States and Number of Ports included:</p>
+  <table>
+    <thead>
+      <tr><th>State Name</th><th>Number of Ports</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Alaska</td><td>4</td></tr>
+      <tr><td>Arizona</td><td>6</td></tr>
+      <tr><td>California</td><td>7</td></tr>
+      <tr><td>Idaho</td><td>2</td></tr>
+      <tr><td>Maine</td><td>13</td></tr>
+      <tr><td>Michigan</td><td>4</td></tr>
+      <tr><td>Minnesota</td><td>8</td></tr>
+      <tr><td>Montana</td><td>13</td></tr>
+      <tr><td>New Mexico</td><td>2</td></tr>
+      <tr><td>New York</td><td>7</td></tr>
+      <tr><td>North Dakota</td><td>18</td></tr>
+      <tr><td>Texas</td><td>13</td></tr>
+      <tr><td>Vermont</td><td>5</td></tr>
+      <tr><td>Washington</td><td>15</td></tr>
+      <tr><th>Total</th><th>117</th></tr>
+    </tbody>
+  </table>
+
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748393696924' style='position: relative'><noscript><a href='#'><img alt='Map of U.S. Ports of Entry ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;MapofU_S_PortsofEntry&#47;MapofU_S_PortsofEntry&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='MapofU_S_PortsofEntry&#47;MapofU_S_PortsofEntry' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;MapofU_S_PortsofEntry&#47;MapofU_S_PortsofEntry&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748393696924');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+
+  <h3>4. Port Distribution by Border</h3>
+  <p>We can also find out how many ports of entry each border contains. <b>The U.S. – Canada border contains 89</b> ports of entry and the <b>U.S. - Mexico border Contains 28 ports</b> of entry.
+This is not surprising to see that <b>Canada contains almost 3 times</b> the number of ports as the border is close to 3 times as long as that of Mexico’s. What is surprising is that the total number of <b>entrants in the south is roughly 3 times that of the north.</b> Where the Northern border is close to 25% of total entrants and the southern border is closer to 75% of total entries.
+</p>
+
+  <h2>PART II – UNDERSTANDING BORDER TRAFFIC</h2>
+
+  <h3>5. Time Series Distribution</h3>
+  <p>Below, we can look at the time series distributed over monthly and yearly intervals. We find that the monthly distribution shows a very clear pattern with a sharp decrease around September 11, 2001, following the terrorist attack in New York, likely leading to stricter board control regulations as well as an extremely sharp decline from 2019-2020 with global lockdowns due to the COVID pandemic.<br>
+Within the monthly distributions we see very clear patterns with peaks in the summer and lows in the winter which tend to follow patterns that occur for tourists.
+</p>
+  <h4>a. Monthly Distribution</h4>
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748392763274' style='position: relative'><noscript><a href='#'><img alt='Total Entries Per Month ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;TotalEntriesperMonth&#47;TotalEntriesPerMonth&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TotalEntriesperMonth&#47;TotalEntriesPerMonth' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;TotalEntriesperMonth&#47;TotalEntriesPerMonth&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748392763274');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+
+  <h4>b. Yearly Distribution</h4>
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748392813743' style='position: relative'><noscript><a href='#'><img alt='Total Entries Per Year ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ye&#47;YearlyEntries&#47;TotalEntriesPerYear&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='YearlyEntries&#47;TotalEntriesPerYear' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ye&#47;YearlyEntries&#47;TotalEntriesPerYear&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748392813743');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+
+  <h3>6. Average Entries by Border Over Time</h3>
+  <p>We can group the Averages by border and within different intervals to see how they compare.</p>
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748392895443' style='position: relative'><noscript><a href='#'><img alt='Averages by Border by Time Periods ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Av&#47;AveragesbyBorderbyTimePeriods&#47;AvgAgg&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AveragesbyBorderbyTimePeriods&#47;AvgAgg' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Av&#47;AveragesbyBorderbyTimePeriods&#47;AvgAgg&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748392895443');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+
+  <h3>7. Top 5 Ports Per Month</h3>
+  <p>Historical view of top 5 ports each month. Gives us insights on consistency and changes over time.</p>
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748392970578' style='position: relative'><noscript><a href='#'><img alt='Top 5 Ports by Month ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;18&#47;18_Top5popularPorts&#47;Top5PortsbyMonth&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='18_Top5popularPorts&#47;Top5PortsbyMonth' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;18&#47;18_Top5popularPorts&#47;Top5PortsbyMonth&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748392970578');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+  
+  <h3>8. Highest Traffic Events</h3>
+  <p>Next, we can find where the highest number of entries took place per month and which months they were. We find that El Paso, Texas holds the record for all top 10 months of border entries and they are all pre 9/11 dates.</p>
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748393014278' style='position: relative'><noscript><a href='#'><img alt='Top 10 Months of Entry  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;Top10Eventstimeline&#47;Top10MonthsofEntry&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Top10Eventstimeline&#47;Top10MonthsofEntry' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;Top10Eventstimeline&#47;Top10MonthsofEntry&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748393014278');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+
+  <h3>9. Most and Least Popular Ports of Entry</h3>
+  <p>Next, we can find the LEAST and MOST popular border crossings by total average crossings with the following map. Surprisingly or not, we see that there is a stark difference between the northern borders and southern borders in terms of average monthly entries in the U.S. with the northern borders holding all the least popular ports and the southern holding all the most popular ports of entry.</p>
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748393139754' style='position: relative'><noscript><a href='#'><img alt='Most and Least Popular Ports ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Mo&#47;MostandLestpopPoE&#47;MostandLeastpopularPorts&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='MostandLestpopPoE&#47;MostandLeastpopularPorts' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Mo&#47;MostandLestpopPoE&#47;MostandLeastpopularPorts&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748393139754');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+
+  <h2>PART III – ANALYZING METHODS OF ENTRY</h2>
+
+  <h3>10. Entry Method Analysis</h3>
+  <h4>a. Total Entries by Method by Border</h4>
+  <p>This graph shows which methods are primarily used on each border. We see very clearly that most of the entries are done using personal vehicles with pedestrians being a notable second on the southern border. It is interesting to note the difference in pedestrian crossings between the two borders. This is most likely due to more popular cities along the southern border with more walkable infrastructure and climate.</p>
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748393231028' style='position: relative'><noscript><a href='#'><img alt='Methods By Border  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Me&#47;Methodsbyborder&#47;MethodsByBorder&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Methodsbyborder&#47;MethodsByBorder' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Me&#47;Methodsbyborder&#47;MethodsByBorder&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748393231028');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+
+  <h4>b. Method Popularity by Border</h4>
+  <p>This graphic is similar in nature to the previous one but allows us to see the methods of entry broken into percentages. We can see that buses seem to be more popular in the north than in the south. We also see that there seems to be a larger percentage of both truck transport and rail transport from Canada then from Mexico. This could imply that we import more percentage wise than we do from Mexico. It also could be a statement about infrastructure that allows for the usage of rail and larger cargo trucks in the north that are not possible to the south.</p>
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748393270509' style='position: relative'><noscript><a href='#'><img alt='Methods as Percentage by Border ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Me&#47;Methodsofpercentagebyborder&#47;MethodsasPercentagebyBorder&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Methodsofpercentagebyborder&#47;MethodsasPercentagebyBorder' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Me&#47;Methodsofpercentagebyborder&#47;MethodsasPercentagebyBorder&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748393270509');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+
+  <h4>c. Entry Method Popularity by Each State</h4>
+  <div class="embed"><div class='tableauPlaceholder' id='viz1748393443031' style='position: relative'><noscript><a href='#'><img alt='States And Their Favorite Entry Method - Alaska ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Po&#47;PortsofEntryVisualizations&#47;StatesAndTheirFavoriteEntryMethod&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PortsofEntryVisualizations&#47;StatesAndTheirFavoriteEntryMethod' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Po&#47;PortsofEntryVisualizations&#47;StatesAndTheirFavoriteEntryMethod&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748393443031');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></div>
+
+  <h3>11. Entry Type Drilldowns</h3>
+  <p>Below is a grid showing year-over-year distribution for all entry methods.<br>
+  <b>*PLEASE USE FULL SCREEN TO PROPERLY DISPLAY GRAPHS*</b></p>
+  <style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 30px;
+    margin-top: 1em;
+  }
+
+  .grid-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  }
+
+  .chart-title {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+
+  .chart-frame {
+    width: 100%;
+    height: 300px;
+    border: none;
+  }
+
+  .chart-note {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0.5em;
+  }
+</style>
+
+<div class="grid-container">
+  <!-- Chart 1 -->
+  <div class="grid-item">
+    <div class="chart-title">Personal Vehical Passangers</div>
+    <div class='tableauPlaceholder' id='viz1748404199476' style='position: relative'><noscript><a href='#'><img alt='Personal Vehical Passangers ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PV&#47;PVPax_17484041728070&#47;PersonalVehicalPassangers&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PVPax_17484041728070&#47;PersonalVehicalPassangers' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PV&#47;PVPax_17484041728070&#47;PersonalVehicalPassangers&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748404199476');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="chart-note">Tends to see a gradual increase from Feburary to peak in August then a decrease until Feburary. Recent numbers are lower than previous years.</div>
+  </div>
+
+  <!-- Chart 2 -->
+  <div class="grid-item">
+    <div class="chart-title">Bus Passangers</div>
+    <div class='tableauPlaceholder' id='viz1748404226831' style='position: relative'><noscript><a href='#'><img alt='Bus Passangers Seasonal ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bu&#47;BussPassseason&#47;BusPassangersSeasonal&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BussPassseason&#47;BusPassangersSeasonal' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bu&#47;BussPassseason&#47;BusPassangersSeasonal&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748404226831');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="chart-note">Similarly to Personal Vehicals, there is an increase from Feburary to August then a gradual decrease until feburary. Recent numbers lower than previously</div>
+  </div>
+
+  <!-- Chart 3 -->
+  <div class="grid-item">
+    <div class="chart-title">Pedestrians</div>
+    <div class='tableauPlaceholder' id='viz1748403867080' style='position: relative'><noscript><a href='#'><img alt='Pedestrians ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;PedperMonth&#47;Pedestrians&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PedperMonth&#47;Pedestrians' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;PedperMonth&#47;Pedestrians&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748403867080');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="chart-note">Seems to be most popular in the months of March, July, and December. covid took a toll from 2020-2022 but 2024 seems to be back to pre covid levels.</div>
+  </div>
+
+  <!-- Chart 4 -->
+  <div class="grid-item">
+    <div class="chart-title">Loaded Truck</div>
+    <div class='tableauPlaceholder' id='viz1748404241867' style='position: relative'><noscript><a href='#'><img alt='Loaded Trucks ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;LT&#47;LTrucks&#47;LoadedTrucks&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='LTrucks&#47;LoadedTrucks' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;LT&#47;LTrucks&#47;LoadedTrucks&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748404241867');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="chart-note">Seemed relatively consistant year round pre-covid however more recent years seem to be much more volitile and have much higher crossings starting in 2023</div>
+  </div>
+
+  <!-- Chart 5 -->
+  <div class="grid-item">
+    <div class="chart-title">Empty Trucks</div>
+    <div class='tableauPlaceholder' id='viz1748404255241' style='position: relative'><noscript><a href='#'><img alt='Empty Trucks ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ET&#47;ETrucks&#47;EmptyTrucks&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ETrucks&#47;EmptyTrucks' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ET&#47;ETrucks&#47;EmptyTrucks&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748404255241');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="chart-note">Seems to peak and then trough about every month, similar to a wave. Ultimatly seems to be increasing as time goes by.</div>
+  </div>
+
+  <!-- Chart 6 -->
+  <div class="grid-item">
+    <div class="chart-title">Train Passangers</div>
+    <div class='tableauPlaceholder' id='viz1748404006939' style='position: relative'><noscript><a href='#'><img alt='Train Passangers ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ra&#47;RailPax&#47;TrainPassangers&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='RailPax&#47;TrainPassangers' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ra&#47;RailPax&#47;TrainPassangers&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748404006939');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="chart-note">By far the most seasonal dependant mode of entry having a large peak in late summer and then a sharp fall off during the winter months. Aside from covid years, graphs seem relatively predictable</div>
+  </div>
+
+  <!-- Chart 7 -->
+  <div class="grid-item">
+    <div class="chart-title">Loaded Trains</div>
+    <div class='tableauPlaceholder' id='viz1748404032714' style='position: relative'><noscript><a href='#'><img alt='Loaded Rail ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;LR&#47;LRail&#47;LoadedRail&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='LRail&#47;LoadedRail' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;LR&#47;LRail&#47;LoadedRail&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748404032714');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="chart-note">Seems to remain somewhat consistant over the year with overall growth in recent years</div>
+  </div>
+
+  <!-- Chart 8 -->
+  <div class="grid-item">
+    <div class="chart-title">Empty Trains</div>
+    <div class='tableauPlaceholder' id='viz1748404069311' style='position: relative'><noscript><a href='#'><img alt='Empty Rail ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ER&#47;ERail&#47;EmptyRail&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ERail&#47;EmptyRail' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ER&#47;ERail&#47;EmptyRail&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748404069311');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="chart-note">Feburary and June seem to be unsually slow months to an other wise rather consistant looking graph. Overall numbers have been growing over the years.</div>
+  </div>
+</div> <!-- End of .grid-container (Chart Grid Ends Here) -->
+
+  <h2>Conclusion and Future Work</h2>
+  <p>This analysis provides a comprehensive view of U.S. border traffic across both geography and time. Major insights include:<br>
+- Peak activity periods and locations<br>
+- Variations between north/south borders<br>
+- Mode-of-entry trends and state-level leaders<br><br>
+Further analysis could include:<br>
+- Correlation with policy changes or events<br>
+- Seasonal or economic factor comparison<br>
+- Forecasting future traffic with time series models</p>
+
+  <div class="footer">
+    <p><strong>Data Analytics and Visuals By:</strong> Slate Owen</p>
+    <p><strong>Contact Information:</strong> sowen4643@gmail.com | <a href="https://github.com/slate122" target="_blank"> Github</a></p>
+  </div>
+
+</body>
+</html>
