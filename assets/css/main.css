@@ -4160,9 +4160,9 @@ input, select, textarea {
   width: 120px;
   height: 120px;
   object-fit: cover;
-  object-position: 48% 30%; /* 50% is centered horizontally, 30% moves it up */
+  object-position: 45% 25%; /* 50% is centered horizontally, 30% moves it up */
   border-radius: 50%;
-  border: 3px solid white;
+  /*border: 3px solid white;*/
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
