@@ -4166,45 +4166,40 @@ input, select, textarea {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.image.square-thumb img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-/* Flex row for each project card */
+
 .project-card {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 2rem;
-  flex-wrap: nowrap; /* prevents wrapping */
+  margin-bottom: 2em;
 }
 
-/* Ensure text stays on the left */
-.project-text {
+/* Text area */
+.project-content {
   flex: 1;
-  min-width: 0;
 }
 
-/* Image styling */
-.project-thumb img {
+/* Thumbnail styling */
+.project-thumbnail img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 5px;
+  display: block;
 }
 
-/* Responsive: stack on mobile */
+/* Stack vertically on small screens */
 @media screen and (max-width: 768px) {
   .project-card {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .project-thumb img {
-    margin-top: 1em;
+  .project-thumbnail img {
+    margin-top: 1rem;
   }
 }
+
 
 
