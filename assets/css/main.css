@@ -4156,21 +4156,23 @@ input, select, textarea {
 	}
 
 /* Profile picture circle + size */
-.profile-pic img {
-  width: 120px; /* adjust size as needed */
+.image.profile-pic img {
+  width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid white; /* optional border */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* optional shadow */
-  margin-bottom: 1em;
+  object-position: 48% 42%; /* Adjusts position inside the crop */
+  /*border-radius: 50%;
+  border: 3px solid white;*/
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+
 /* Force PostgreSQL image into a perfect circle */
-.circle-image img {
-  width: 120px; /* same as height for circle */
+.image.circle-image img {
+  width: 120px;
   height: 120px;
   object-fit: cover;
+  object-position: center;
   border-radius: 50%;
-  border: 2px solid #ccc; /* optional styling */
+  border: 2px solid #ccc;
 }
