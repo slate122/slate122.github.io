@@ -4173,14 +4173,20 @@ input, select, textarea {
   justify-content: space-between;
   gap: 2rem;
   margin-bottom: 2em;
+  max-width: 100%;
 }
 
-/* Text area */
+/* Content takes up most of the row */
 .project-content {
-  flex: 1;
+  flex: 1 1 70%; /* Grow and shrink with 70% base */
+  min-width: 0;
 }
 
-/* Thumbnail styling */
+/* Thumbnail fixed width */
+.project-thumbnail {
+  flex: 0 0 150px;
+}
+
 .project-thumbnail img {
   width: 150px;
   height: 150px;
@@ -4188,6 +4194,7 @@ input, select, textarea {
   border-radius: 5px;
   display: block;
 }
+
 
 /* Stack vertically on small screens */
 @media screen and (max-width: 768px) {
