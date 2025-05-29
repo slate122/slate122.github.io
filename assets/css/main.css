@@ -4172,32 +4172,39 @@ input, select, textarea {
   object-fit: cover;
   border-radius: 5px;
 }
-/* Align project content and thumbnail side-by-side */
+/* Flex row for each project card */
 .project-card {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* prevents wrapping */
 }
 
-/* Thumbnail container */
-.project-card .thumb-container img {
+/* Ensure text stays on the left */
+.project-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Image styling */
+.project-thumb img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 5px;
 }
 
-/* Keep content readable on small screens */
+/* Responsive: stack on mobile */
 @media screen and (max-width: 768px) {
   .project-card {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .project-card .thumb-container {
-    align-self: center;
+  .project-thumb img {
+    margin-top: 1em;
   }
 }
+
 
