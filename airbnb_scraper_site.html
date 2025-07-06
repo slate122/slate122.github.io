@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airbnb Scraper Showcase</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0f1c 0%, #1a1f2e 100%);
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-4 bg-slate-900 shadow-2xl border-b border-slate-800">
+    <h1 class="text-4xl font-semibold text-white mb-4">Airbnb Scraper</h1>
+    <p class="text-lg text-slate-300 mb-6 max-w-2xl mx-auto">
+      A Python tool using Selenium WebDriver to automate Airbnb searches and collect data including titles, prices, reviews, and more.
+    </p>
+    <a href="https://github.com/slate122/Portfolio_Projects/tree/main/air_bnb_scraper" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+      View on GitHub
+    </a>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 px-6 max-w-5xl mx-auto">
+    <h2 class="text-2xl font-semibold text-center mb-12 text-white">Key Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-slate-800 p-6 rounded-lg shadow-lg card-hover border border-slate-700">
+        <h3 class="font-semibold text-lg text-white">🔍 Smart Search</h3>
+        <p class="text-slate-300">Search by location, dates, guests, and beds.</p>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-lg shadow-lg card-hover border border-slate-700">
+        <h3 class="font-semibold text-lg text-white">📄 CSV Export</h3>
+        <p class="text-slate-300">Download scraped data for analysis or visualization.</p>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-lg shadow-lg card-hover border border-slate-700">
+        <h3 class="font-semibold text-lg text-white">🌀 Pagination</h3>
+        <p class="text-slate-300">Automatically navigate through multiple Airbnb pages.</p>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-lg shadow-lg card-hover border border-slate-700">
+        <h3 class="font-semibold text-lg text-white">🛡️ Robust Error Handling</h3>
+        <p class="text-slate-300">Handles timeouts, missing fields, and unexpected content.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section class="bg-slate-800 py-16 px-6 border-y border-slate-700">
+    <h2 class="text-2xl font-semibold text-center mb-12 text-white">How It Works</h2>
+    <ol class="max-w-3xl mx-auto list-decimal list-inside space-y-4 text-slate-300">
+      <li>You enter your search parameters in the script (location, dates, beds, etc.).</li>
+      <li>The script launches a Chrome browser using Selenium.</li>
+      <li>It navigates through listings and scrapes the data.</li>
+      <li>All results are stored in a clean CSV file for your use.</li>
+    </ol>
+  </section>
+
+  <!-- Sample Output Section -->
+  <section class="py-16 px-6 max-w-5xl mx-auto">
+    <h2 class="text-2xl font-semibold text-center mb-12 text-white">Sample Output</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-slate-800 rounded-lg shadow-xl border border-slate-700">
+        <thead class="bg-slate-700 text-slate-200">
+          <tr>
+            <th class="px-4 py-2 text-left">Title</th>
+            <th class="px-4 py-2 text-left">Price</th>
+            <th class="px-4 py-2 text-left">Beds</th>
+            <th class="px-4 py-2 text-left">Reviews</th>
+            <th class="px-4 py-2 text-left">Link</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm text-slate-300">
+          <tr class="border-t border-slate-700">
+            <td class="px-4 py-2">Cozy Loft in NYC</td>
+            <td class="px-4 py-2">$215/night</td>
+            <td class="px-4 py-2">2</td>
+            <td class="px-4 py-2">124</td>
+            <td class="px-4 py-2 text-blue-400 underline"><a href="https://www.airbnb.com/rooms/624678118491722763?source_impression_id=p3_1751773150_P3My42JmLOeUAZFS" class="hover:text-blue-300 transition-colors">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-slate-400 border-t border-slate-800">
+    Built by <a href="https://github.com/slate122" class="text-red-400 hover:text-red-300 hover:underline transition-colors">Slate Owen</a> • Powered by Python & Selenium • <a href="https://github.com/slate122/python_projs" class="text-red-400 hover:text-red-300 hover:underline transition-colors">My Python Projects</a>
+  </footer>
+</body>
+</html>
